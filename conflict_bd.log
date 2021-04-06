@@ -1,0 +1,33 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:\Users\mm_wi\Documents\ntu_agecon\laborecon\pj\conflict\conflict_bd.log
+  log type:  text
+ opened on:   6 Apr 2021, 01:39:36
+
+. set more off
+
+. 
+. cd "C:\Users\mm_wi\Documents\ntu_agecon\laborecon\pj\conflict"
+C:\Users\mm_wi\Documents\ntu_agecon\laborecon\pj\conflict
+
+. insheet using "conflict_bd.csv"
+(28 vars, 7,009 obs)
+
+. 
+end of do-file
+
+. do "C:\Users\mm_wi\AppData\Local\Temp\STD1fac_000000.tmp"
+
+. save conflict.dta,replace
+(note: file conflict.dta not found)
+file conflict.dta saved
+
+. use conflict.dta
+
+. 
+. log close
+      name:  <unnamed>
+       log:  C:\Users\mm_wi\Documents\ntu_agecon\laborecon\pj\conflict\conflict_bd.log
+  log type:  text
+ closed on:   6 Apr 2021, 01:41:02
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------

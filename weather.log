@@ -1,0 +1,129 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:\Users\mm_wi\Documents\ntu_agecon\laborecon\pj\bd_weather\weather.log
+  log type:  text
+ opened on:   6 Apr 2021, 01:33:40
+
+. set more off
+
+. 
+. infix using "weather.csv", clear
+,Station Names,YEAR,Month,Max Temp,Min Temp,Rainfall,Relative Humidity,Wind Speed,Cloud Coverage,Bright Sunshine,Station Number,X_COR,Y_COR,LATITUDE,LONGITUDE,ALT,Period
+file does not contain dictionary
+r(613);
+
+end of do-file
+
+r(613);
+
+. do "C:\Users\mm_wi\AppData\Local\Temp\STD5294_000000.tmp"
+
+. insheet using "weather.csv", clear
+(18 vars, 21,120 obs)
+
+. 
+end of do-file
+
+. do "C:\Users\mm_wi\AppData\Local\Temp\STD5294_000000.tmp"
+
+. save weather.dta, replace
+file weather.dta saved
+
+. use weather.dta
+
+. 
+end of do-file
+
+. count stationnames
+varlist not allowed
+r(101);
+
+. tab stationnames
+
+            Station Names |      Freq.     Percent        Cum.
+--------------------------+-----------------------------------
+                  Barisal |        780        3.69        3.69
+                    Bhola |        576        2.73        6.42
+                    Bogra |        792        3.75       10.17
+                 Chandpur |        600        2.84       13.01
+Chittagong (City-Ambagan) |         48        0.23       13.24
+ Chittagong (IAP-Patenga) |        780        3.69       16.93
+                Chuadanga |        300        1.42       18.35
+                  Comilla |        792        3.75       22.10
+              Cox's Bazar |        792        3.75       25.85
+                    Dhaka |        732        3.47       29.32
+                 Dinajpur |        792        3.75       33.07
+                 Faridpur |        792        3.75       36.82
+                     Feni |        492        2.33       39.15
+                   Hatiya |        576        2.73       41.87
+                  Ishurdi |        636        3.01       44.89
+                  Jessore |        792        3.75       48.64
+                Khepupara |        480        2.27       50.91
+                   Khulna |        792        3.75       54.66
+                 Kutubdia |        444        2.10       56.76
+                Madaripur |        444        2.10       58.86
+            Maijdee Court |        756        3.58       62.44
+                   Mongla |        300        1.42       63.86
+               Mymensingh |        792        3.75       67.61
+               Patuakhali |        492        2.33       69.94
+                 Rajshahi |        600        2.84       72.78
+                Rangamati |        684        3.24       76.02
+                  Rangpur |        720        3.41       79.43
+                  Sandwip |        576        2.73       82.16
+                 Satkhira |        792        3.75       85.91
+                Sitakunda |        444        2.10       88.01
+                Srimangal |        792        3.75       91.76
+                  Syedpur |        276        1.31       93.07
+                   Sylhet |        696        3.30       96.36
+                  Tangail |        324        1.53       97.90
+                   Teknaf |        444        2.10      100.00
+--------------------------+-----------------------------------
+                    Total |     21,120      100.00
+
+. codebook stationnames
+
+----------------------------------------
+stationnames               Station Names
+----------------------------------------
+
+                  type:  string (str25)
+
+         unique values:  35             
+>           missing "":  0/21,120
+
+              examples:  "Comilla"
+                         "Hatiya"
+                         "Maijdee Court"
+                         "Sandwip"
+
+               warning:  variable has em
+> bedded blanks
+
+. codebook stationnumber
+
+----------------------------------------
+stationnumber             Station Number
+----------------------------------------
+
+                  type:  numeric (long)
+
+                 range:  [41858,41998]  
+>               units:  1
+         unique values:  35             
+>           missing .:  0/21,120
+
+                  mean:     41934
+              std. dev:   37.0767
+
+           percentiles:        10%      
+>  25%                                  
+>            50%                        
+>                      75%              
+>                                90%
+                             41883     4
+> 1907                                  
+>          41941                        
+>                    41960              
+>                              41984
+
+. exit, clear
